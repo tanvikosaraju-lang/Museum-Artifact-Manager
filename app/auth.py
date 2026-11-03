@@ -17,7 +17,7 @@ def register_user(username: str, password: str) -> bool:
     cursor = conn.cursor()
     try:
         hashed = hash_password(password)
-        cursor.execute("INSERT INTO users (username, password_hash) VALUES (?, ?)", (username, hashed))
+        cursor.execute("    INSERT INTO users (username, password_hash) VALUES (?, ?)", (username, hashed))
         conn.commit()
         return True
     except sqlite3.IntegrityError:
